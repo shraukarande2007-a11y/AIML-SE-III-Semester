@@ -1,1 +1,170 @@
+package OOPL ;
+
+ class Employee {
+	
+	    String empName;
+	    int empId;
+	    String address;
+	    String mailId;
+	    String mobileNo;
+	    double basicPay;
+
+	  Employee(String empName, int empId, String address,
+	             String mailId, String mobileNo, double basicPay) {
+
+	        this.empName = empName;
+	        this.empId = empId;
+	        this.address = address;
+	        this.mailId = mailId;
+	        this.mobileNo = mobileNo;
+	        this.basicPay = basicPay;
+	    }
+
+	    void generateSalarySlip(String designation) {
+
+	        // Salary Allowances
+	        double da = basicPay * 0.97;
+	        double hra = basicPay * 0.10;
+
+	        // Deductions
+	        double pf = basicPay * 0.12;
+	        double staffClubFund = basicPay * 0.001;
+
+	        // Salary Calculation
+	        double grossSalary = basicPay + da + hra;
+	        double totalDeduction = pf + staffClubFund;
+	        double netSalary = grossSalary - totalDeduction;
+
+	        System.out.println("\n=================================");
+	        System.out.println("          SALARY SLIP");
+	        System.out.println("=================================");
+
+	        System.out.println("Designation : " + designation);
+	        System.out.println("Employee ID : " + empId);
+	        System.out.println("Name        : " + empName);
+	        System.out.println("Address     : " + address);
+	        System.out.println("Mail ID     : " + mailId);
+	        System.out.println("Mobile No   : " + mobileNo);
+
+	        System.out.println("---------------------------------");
+
+	        System.out.println("Basic Pay   : " + basicPay);
+	        System.out.println("DA (97%)    : " + da);
+	        System.out.println("HRA (10%)   : " + hra);
+
+	        System.out.println("---------------------------------");
+
+	        System.out.println("Gross Salary : " + grossSalary);
+
+	        System.out.println("---------------------------------");
+
+	        System.out.println("PF (12%)       : " + pf);
+	        System.out.println("Staff Fund (0.1%) : " + staffClubFund);
+
+	        System.out.println("---------------------------------");
+
+	        System.out.println("Total Deduction : " + totalDeduction);
+	        System.out.println("Net Salary      : " + netSalary);
+
+	        System.out.println("=================================");
+	    }
+	}
+
+
+	// Programmer Class
+	class Programmer extends Employee {
+
+	    Programmer(String name, int id, String address,
+	               String mail, String mobile, double basicPay) {
+
+	        super(name, id, address, mail, mobile, basicPay);
+	    }
+	}
+
+
+	// Team Lead Class
+	class TeamLead extends Employee {
+
+	    TeamLead(String name, int id, String address,
+	             String mail, String mobile, double basicPay) {
+
+	        super(name, id, address, mail, mobile, basicPay);
+	    }
+	}
+
+
+	// Assistant Project Manager Class
+	class AssistantProjectManager extends Employee {
+
+	    AssistantProjectManager(String name, int id, String address,
+	                            String mail, String mobile, double basicPay) {
+
+	        super(name, id, address, mail, mobile, basicPay);
+	    }
+	}
+
+
+	// Project Manager Class
+	class ProjectManager extends Employee {
+
+	    ProjectManager(String name, int id, String address,
+	                   String mail, String mobile, double basicPay) {
+
+	        super(name, id, address, mail, mobile, basicPay);
+	    }
+	}
+
+
+	// Main Class
+ public class Ass3 {
+
+	    public static void main(String[] args) {
+
+	        Programmer p = new Programmer(
+	                "Amit",
+	                101,
+	                "Pune",
+	                "amit@gmail.com",
+	                "9876543210",
+	                30000
+	        );
+
+	        TeamLead tl = new TeamLead(
+	                "Sneha",
+	                102,
+	                "Mumbai",
+	                "sneha@gmail.com",
+	                "9876500000",
+	                50000
+	        );
+
+	        AssistantProjectManager apm = new AssistantProjectManager(
+	                "Rahul",
+	                103,
+	                "Nashik",
+	                "rahul@gmail.com",
+	                "9876511111",
+	                70000
+	        );
+
+	        ProjectManager pm = new ProjectManager(
+	                "Priya",
+	                104,
+	                "Pune",
+	                "priya@gmail.com",
+	                "9876522222",
+	                90000
+	        );
+
+	        p.generateSalarySlip("Programmer");
+
+	        tl.generateSalarySlip("Team Lead");
+
+	        apm.generateSalarySlip("Assistant Project Manager");
+
+	        pm.generateSalarySlip("Project Manager");
+	    }
+	}
+
+
 
